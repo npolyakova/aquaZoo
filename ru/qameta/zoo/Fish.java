@@ -1,6 +1,6 @@
 package ru.qameta.zoo;
 
-public class Fish {
+public class Fish { //FIXME
 
     int price;
 
@@ -9,6 +9,10 @@ public class Fish {
     int profit;
 
     Aquarium aquarium;
+
+    public void changeAquarium(Aquarium aq) {
+        this.aquarium = aq;
+    }
 
     public void setRarity(int rarity) {
         if (rarity < 4 && rarity > 0) {

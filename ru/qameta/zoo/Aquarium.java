@@ -2,7 +2,7 @@ package ru.qameta.zoo;
 
 import java.util.Random;
 
-public class Aquarium {
+public class Aquarium { //FIXME
 
     Random r = new Random();
 

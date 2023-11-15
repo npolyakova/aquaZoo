@@ -10,11 +10,11 @@ public class Aquarium { //FIXME
 
     int size;
 
-    public Aquarium createDefaultAquarium() {
-        return new Aquarium(0, 5);
+    public void getInfo() {
+        System.out.printf("Price: %d\nSize: %d\n", this.price, this.size);
     }
 
-    private Aquarium(int price, int size) {
+    public Aquarium(int price, int size) {
         this.price = price;
         this.size = size;
     }

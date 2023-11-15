@@ -1,28 +1,55 @@
 package ru.qameta.zoo;
 
+import java.util.Random;
+
 public class Fish { //FIXME
 
-    int price;
+    private int price;
 
     private int rarity; //1, 2, 3
 
-    int profit;
+    private int profit;
 
-    Aquarium aquarium;
+    private Aquarium aquarium;
 
-    public void changeAquarium(Aquarium aq) {
+    public void setAquarium(Aquarium aq) {
         this.aquarium = aq;
     }
 
-    public void setRarity(int rarity) {
-        if (rarity < 4 && rarity > 0) {
-            this.rarity = rarity;
-        } else {
-            System.out.println("Введите число от 1 до 3");
+    public void getInfo() {
+        System.out.printf("Price: %d\nRarity: %d\nProfit: %d\n", this.price, this.rarity, this.profit);
+    }
+
+    private void setRandomPrice(int rarity) {
+        switch (rarity) {
+            case 1 -> this.price = new Random().nextInt(100, 300);
+            case 2 -> this.price = new Random().nextInt(400, 800);
+            case 3 -> this.price = new Random().nextInt(900, 1500);
+            default -> System.out.println("Ошибка выполнения программы");
         }
     }
 
-    public int getRarity() {
-        return rarity;
+    private void setRandomRarity() {
+        this.rarity = new Random().nextInt(1, 4);
+    }
+
+    private void setProfit(int rarity) {
+        switch (rarity) {
+            case 1 -> this.profit = 10;
+            case 2 -> this.profit = 20;
+            case 3 -> this.profit = 30;
+            default -> System.out.println("Ошибка выполнения программы");
+        }
+    }
+
+    public int getProfit() {
+        return this.profit;
+    }
+
+    public Fish(Aquarium aq) {
+        setRandomRarity();
+        setRandomPrice(this.rarity);
+        setProfit(this.rarity);
+        this.aquarium = aq;
     }
 }
